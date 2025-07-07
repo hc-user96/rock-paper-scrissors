@@ -51,7 +51,7 @@ function playGame() {
             console.log("You win!");
             humanScore++;
         }
-        else if (human === "paper" && computer === "stone") {
+        else if (human === "paper" && computer === "rock") {
             console.log("You win!");
             humanScore++;
         }
