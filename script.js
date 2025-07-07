@@ -1,9 +1,12 @@
 let humanScore = 0;
 let computerScore = 0;
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
 
 function getComputerChoice() {
     let choiceNumber = Math.floor(Math.random() * 30);
-    console.log(choiceNumber);
 
     if (choiceNumber >= 20) {
         return "rock";
@@ -21,19 +24,37 @@ function getHumanChoice() {
     return choice;
 }
 
-/*
-FUNCTION playRound(humanChoice, computerChoice)
-    turn humanChoice string to lowercase
-    IF human === "rock":
-        IF computer === "paper"
-            INCREMENT computer
-            RETURN
-        IF ELSE  computer === "scissors"
-            INCREMENT human
-            RETURN
-        ELSE
-            INCREMENT human and computer
-            RETURN
-    ELSE IF human === "paper":
-        IF computer === ""
-....
+function playRound(humanChoice, computerChoice) {
+    human = humanChoice.toLowerCase();
+    computer = computerChoice;
+
+    if (human === "rock" && computer === "scissors") {
+        console.log("You win!");
+        humanScore++;
+    }
+    else if (human === "paper" && computer === "stone") {
+        console.log("You win!");
+        humanScore++;
+    }
+    else if (human === "scissors" && computer === "paper") {
+        console.log("You win!");
+        humanScore++;
+    }
+    else if (human === "rock" && computer === "paper") {
+        console.log("You lose!");
+        computerScore++;
+    }
+    else if (human === "paper" && computer === "scissors") {
+        console.log("You lose!");
+        computerScore++;
+    }
+    else if (human === "scissors" && computer === "rock") {
+        console.log("You lose!");
+        computerScore++;
+    }
+    else {
+        console.log("Draw!");
+        humanScore++;
+        computerScore++;
+    }
+}
