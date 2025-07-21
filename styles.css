@@ -1,0 +1,13 @@
+.selection {
+    padding: 2em 0em;
+    border-color: green;
+    border-style: dotted;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.selection > * {
+   font-size: 3rem;
+   border-radius: 1rem;
+}
