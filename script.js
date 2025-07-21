@@ -30,6 +30,20 @@ function playGame() {
         }
     }
 
+    function checkWinner() {
+        if (humanScore >= 5 || computerScore >=5) {
+            if (humanScore >= 5 && computerScore >=5) {
+                resultsGame.textContent = "It's a draw!";
+            }
+            else if (humanScore >= 5) {
+                resultsGame.textContent = "You won the game!";
+            }
+            else {
+                resultsGame.textContent = "You lost the game!";
+            }
+        }
+    }
+
     function playRound(humanChoice, computerChoice) {
         human = humanChoice;
         computer = computerChoice;
@@ -38,37 +52,44 @@ function playGame() {
             resultsRound.textContent = "You win!";
             humanScore++;
             score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+            checkWinner();
         }
         else if (human === "paper" && computer === "rock") {
             resultsRound.textContent = "You win!";
             humanScore++;
             score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+            checkWinner();
         }
         else if (human === "scissors" && computer === "paper") {
             resultsRound.textContent = "You win!";
             humanScore++;
             score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+            checkWinner();
         }
         else if (human === "rock" && computer === "paper") {
             resultsRound.textContent = "You Lose!";
             computerScore++;
             score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+            checkWinner();
         }
         else if (human === "paper" && computer === "scissors") {
             resultsRound.textContent = "You Lose!";
             computerScore++;
             score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+            checkWinner();
         }
         else if (human === "scissors" && computer === "rock") {
             resultsRound.textContent = "You Lose!";
             computerScore++;
             score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+            checkWinner();
         }
         else {
             resultsRound.textContent = "Draw!";
             humanScore++;
             computerScore++;
             score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+            checkWinner();
         }
     }
 }
