@@ -5,7 +5,14 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    
+    let humanChoice;
+
+    let selection = document.querySelectorAll(".selection button");
+    selection.forEach(button => {
+        button.addEventListener("click", (e) => {
+            playRound(e.target.id, getComputerChoice());
+        });
+    });
 
     if (humanScore > computerScore) {
         console.log("You won the game!");
