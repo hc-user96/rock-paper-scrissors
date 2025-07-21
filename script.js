@@ -12,7 +12,18 @@ function playGame() {
     let selection = document.querySelectorAll(".selection button");
     selection.forEach(button => {
         button.addEventListener("click", (e) => {
+
+            // If a winner is declared a new round starts
+            if (resultsGame.textContent != "") {
+                humanScore =  0;
+                computerScore = 0;
+                resultsGame.textContent = "";
+            }
+
+            // Play round update score, check for winner
             playRound(e.target.id, getComputerChoice());
+            score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+            checkWinner();
         });
     });
 
@@ -51,45 +62,31 @@ function playGame() {
         if (human === "rock" && computer === "scissors") {
             resultsRound.textContent = "You win!";
             humanScore++;
-            score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
-            checkWinner();
         }
         else if (human === "paper" && computer === "rock") {
             resultsRound.textContent = "You win!";
             humanScore++;
-            score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
-            checkWinner();
         }
         else if (human === "scissors" && computer === "paper") {
             resultsRound.textContent = "You win!";
             humanScore++;
-            score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
-            checkWinner();
         }
         else if (human === "rock" && computer === "paper") {
             resultsRound.textContent = "You Lose!";
             computerScore++;
-            score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
-            checkWinner();
         }
         else if (human === "paper" && computer === "scissors") {
             resultsRound.textContent = "You Lose!";
             computerScore++;
-            score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
-            checkWinner();
         }
         else if (human === "scissors" && computer === "rock") {
             resultsRound.textContent = "You Lose!";
             computerScore++;
-            score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
-            checkWinner();
         }
         else {
             resultsRound.textContent = "Draw!";
             humanScore++;
             computerScore++;
-            score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
-            checkWinner();
         }
     }
 }
