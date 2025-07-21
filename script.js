@@ -30,15 +30,8 @@ function playGame() {
         }
     }
 
-
-    function getHumanChoice() {
-        let choice = prompt("What's your choice? ", "");
-        return choice;
-    }
-
-
     function playRound(humanChoice, computerChoice) {
-        human = humanChoice.toLowerCase();
+        human = humanChoice;
         computer = computerChoice;
 
         if (human === "rock" && computer === "scissors") {
